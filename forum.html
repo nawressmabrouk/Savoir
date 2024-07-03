@@ -1,0 +1,72 @@
+<head>
+  <title>| forum</title>
+  <link rel="stylesheet" href="forum.css">
+</head>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+/>
+<body>
+  
+<div class="container">
+ 
+  <div class="response-group">
+    
+    <header>
+            
+            <a href="main.html"> <img src="savoir.png" ></a>
+            
+        </nav>
+    </header>
+    <div class="post-group">
+      <div class="post">
+        <div class="response">
+          <div class="comment-form">
+            
+              <form action="forum.php"method="POST">
+                <input type="text" name="formtext" style="width: 620px; height: 90px;" maxlength="500"><br>
+              <div class="comment-form__actions">
+                <input type="submit" value="Submit"id= "btnSubmit" class="button button--confirm">
+                <input type="reset" value="Cancel" class="button button--light cancel">
+              </div>
+              </form>
+          </div>
+          </div>
+        </div>
+        
+      </div>
+
+    <script>
+      // Fetch messages from forum2.php
+      fetch('forum2.php')
+          .then(response => response.json())
+          .then(messages => {
+              const responseGroup = document.querySelector('.response-group');
+              messages.forEach(message => {
+                  const post = document.createElement('div');
+                  post.className = 'post';
+                  post.innerHTML = `
+                      <div class="post__avatar"></div>
+                      <h3 class="post__author">${message.author}</h3>
+                      <h4 class="post__timestamp">${message.timestamp}</h4>
+                      <p class="post__body">${message.body}</p>
+                      <div class="post__actions">
+                        <div class="button button--approve">
+                          <i class="fa fa-thumbs-o-up"></i
+                          ><i class="fa fa-thumbs-up solid"></i>
+                        </div>
+                        <div class="button button--deny">
+                          <i class="fa fa-thumbs-o-down"></i
+                          ><i class="fa fa-thumbs-down solid"></i>
+                        </div>
+                      </div>
+                  `;
+                  responseGroup.appendChild(post);
+              });
+          })
+          .catch(error => console.error('Error fetching messages:', error));
+  </script>
+
+</body>
+
+      

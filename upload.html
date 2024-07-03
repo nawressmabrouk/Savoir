@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+
+    
+        
+        .navbar .logo {
+            order: 1;
+            margin-left: 0px;
+            margin-right: 10%;
+        }
+        
+        
+        .navbar .logo img {
+            max-width: 35%;
+            height: 60px;
+            width: 200px;
+            margin-right: 60%;
+            margin-top: 20px;
+
+            
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222831;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .containers {
+            width: 500px; /* Largeur agrandie de la carte */
+            height: 350px; /* Hauteur agrandie de la carte */
+            perspective: 1500px; /* Profondeur de la perspective */
+            margin: 100px auto;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 20px; /* Coins arrondis plus grands */
+        }
+
+        .card:hover {
+            transform: rotateY(10deg); /* Légère rotation lorsqu'il est survolé */
+        }
+
+        .front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #393e46;
+            border-radius: 20px; /* Coins arrondis plus grands */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backface-visibility: hidden;
+        }
+
+        h1 {
+            color: #17c3b2;
+            font-weight: bold;
+            margin-bottom: 20px; /* Ajout d'une marge en bas */
+            font-size: 24px; /* Taille de police légèrement plus grande */
+        }
+
+        input[type="text"],
+        select {
+            width: 80%;
+            padding: 8px;
+            background-color: #222831;
+            color: white;
+            border: none;
+            border-bottom: 1px solid #17c3b2;
+            margin-bottom: 20px; /* Espacement plus grand */
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            height: 50px;
+            width: 120px;
+            border-radius: 25px;
+            border: 1px dashed #999;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        label:hover {
+            color: #0b0000;
+            border-color:  #0b0000;
+        }
+
+        button {
+            width:50%; /* Réduire la largeur à 60% */
+            padding: 10px; /* Taille du bouton réduite */
+            border-radius: 8px;
+            background-color: transparent;
+            color: #17c3b2;
+            border: 2px solid #17c3b2;
+            font-size: 15px; /* Taille de police réduite */
+            cursor: pointer;
+            transition: 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        button:before {
+            content: '';
+            width: 0;
+            height: 300%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: 0.5s ease;
+            transform: translate(-50%, -50%) rotate(45deg);
+            display: block;
+            z-index: -1;
+            background-color: #17c3b2;
+        }
+        
+        button:hover::before {
+            width: 105%;
+        }
+        
+        button:hover {
+            color: #111;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+            
+            
+            <a href="main.html"  class="logo">
+    <img src="savoir.png" alt="Logo"></a>
+    </nav>
+        
+        
+    <div class="containers">
+        <div class="card">
+            <div class="front">
+                <h1>Upload document</h1>
+                <form id="uploadForm" enctype="multipart/form-data" method="POST" action="upload.php">
+                    <input type="text" name="name" placeholder="Nom" required><br>
+                    <select id="selection" name="sel">
+                        <option value="option0" selected>Type de document</option>
+                        <option value="cours">Cours</option>
+                        <option value="examen">Examen</option>
+                        <option value="ds">DS</option>
+                        <option value="td">TD</option>
+                    </select><br>
+                    <input type="file" id="file" name="file" />
+                    <label for="file">Upload</label><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

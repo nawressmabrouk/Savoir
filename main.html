@@ -1,0 +1,93 @@
+<html>
+<head>
+<link rel="stylesheet" href="main.css">
+	<script src="mainfun.js" ></script>
+</head>
+
+<body>
+	<header>
+<nav class="navbar">
+	<div class="container">
+		
+	<div class="navbar-header">
+		<button class="navbar-toggler" data-toggle="open-navbar1">
+		<span></span>
+		<span></span>
+		<span></span>
+		</button>
+		<a href="main.html"  class="logo">
+<img src="savoir.png" alt="Logo"></a>
+	</div>
+    
+	<div class="navbar-menu" id="open-navbar1">
+		<ul class="navbar-nav">
+		<li class="active"><a href="main.html">Home</a></li>
+		<li><a href="upload.html">Upload</a></li>
+		<li><a href="forum.html">Forum</a></li>
+		<li><a href="a.php">Room</a></li>
+		
+			
+		</ul>
+</div>
+		<div class="navbar-notif">
+			<a href="#"><img src="notifs.jpeg" alt="notif"></a>
+			<div class="notif-menu">
+				
+       			 <div class="menu-item"><!--<?php include:'notifs.php'; ?>-->notification1 document exam XML is now available   </div>
+    </div>
+		</div>
+		<div class="navbar-profile">
+			    <a href="#" class="profile-link"><img src="profiles.jpeg" alt="profile"></a>
+    			<div class="profile-menu">
+       			 <div class="menu-item"><a href="changepass.html">Change password</div>
+       			 <div class="menu-item"><a href="index.html">Log Out</a></div>
+    </div>
+</div> </div>
+</header>
+</nav>
+
+<form action="main.php" method="post" id="rechForm">
+
+<div class="research-bar">
+    <select id="selection" class="form-style" name="type" onchange="handleSelectionChange()">
+        <option value="option0" selected>
+        <option value="cours">Cours</option>
+        <option value="examen">Examen</option>
+        <option value="ds">DS</option>
+        <option value="td">TD</option>
+    </select>
+    <input type="text" class="search-input" id='search'placeholder="Search..." name="searchbar">
+    <button class="search-button" onclick ='search()'><img src="loop.png" ></button>
+</div>
+</form>
+
+
+<iframe id="resultFrame" src="main2.php" frameborder="0" width="100%" height="400px">
+
+</iframe>
+
+
+<!---<script>
+fetch('main.php')
+.then(response => response.json())
+.then(messages => {
+    const responseGroup = document.querySelector('research-bar');
+    messages.forEach(message => {
+        const post = document.createElement('div');
+        post.className = 'post';
+        post.innerHTML =`
+        <div class="docname">${doc.nomdoc}</div>
+        <div class="body">${doc.file_content}</div>
+        <div class="date">${doc.date}</div>
+    `;
+        responseGroup.appendChild(post);
+    });
+})
+.catch(error => console.error('Error fetching messages:', error));
+</script>--->
+
+
+
+
+</body>
+</html>

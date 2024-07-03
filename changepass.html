@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>| Change Password</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222831; /* Fond noir légèrement plus clair */
+            color: white; /* Texte blanc */
+            text-align: center; /* Centrage du texte */
+        }
+        
+        .container {
+            max-width: 400px; /* Largeur maximale du conteneur */
+            margin: 100px auto; /* Centrage vertical et horizontal du conteneur */
+            perspective: 1000px; /* Définit la perspective pour les transformations 3D */
+        }
+        
+        .card {
+            background-color: #393e46; /* Couleur de fond de la carte */
+            border-radius: 15px; /* Coins arrondis de la carte */
+            padding: 50px 20px; /* Espacement à l'intérieur de la carte */
+            transform-style: preserve-3d; /* Préserve les transformations 3D des enfants */
+            transition: transform 0.5s; /* Animation de transition pour la transformation */
+            width: 350;
+            
+        }
+        
+        .card h2 {
+            color: #17c3b2; /* Couleur bleu clair pour le titre */
+            font-weight: bold; /* Texte en gras */
+            margin-bottom: 20px; /* Espacement supplémentaire en bas */
+            font-size: 20px; /* Taille de police réduite */
+            display: flex; /* Utilisation de flexbox pour centrer verticalement */
+            justify-content: center; /* Centrage horizontal */
+            align-items: center; /* Centrage vertical */
+        }
+        
+        label {
+            color: white; /* Couleur blanche pour les étiquettes */
+            display: block; /* Afficher chaque étiquette sur une nouvelle ligne */
+            margin-bottom: 20px; /* Espacement supplémentaire en bas */
+            text-align: left; /* Alignement du texte à gauche */
+        }
+        
+        input[type="password"] {
+            width: 300px; /* Largeur de 100% pour les champs de saisie */
+            padding: 10px; /* Ajoute un espace autour du texte des champs de saisie */
+            background-color: #222831; /* Couleur de fond des champs de saisie */
+            color: white; /* Couleur du texte des champs de saisie */
+             /* border: none; Supprime la bordure des champs de saisie */
+            border-bottom: 2px solid #17c3b2; /* Bordure inférieure pour les champs de saisie */
+            margin-bottom: 20px; /* Espacement supplémentaire en bas */
+            
+            
+        }
+        
+        button {
+            width:50%; /* Réduire la largeur à 60% */
+            padding: 10px; /* Taille du bouton réduite */
+            border-radius: 8px;
+            background-color: transparent;
+            color: #17c3b2;
+            border: 2px solid #17c3b2;
+            font-size: 15px; /* Taille de police réduite */
+            cursor: pointer;
+            transition: 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        button:before {
+            content: '';
+            width: 0;
+            height: 300%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: 0.5s ease;
+            transform: translate(-50%, -50%) rotate(45deg);
+            display: block;
+            z-index: -1;
+            background-color: #17c3b2;
+        }
+        
+        button:hover::before {
+            width: 105%;
+        }
+        
+        button:hover {
+            color: #111;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Change Password</h2>
+            <form action="changepass.php" method="post">
+                <label for="old_password">Enter Old Password:</label>
+                <input type="password" id="old_password" name="old_password" required>
+                <label for="new_password">Enter New Password:</label>
+                <input type="password" id="new_password" name="new_password" required>
+                <label for="confirm_password">Enter New Password Again:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
